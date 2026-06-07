@@ -1,0 +1,20 @@
+{
+  "name": "calgary-home-services-landing-page",
+  "version": "1.0.0",
+  "description": "Premium landing page for Calgary Home Services",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server --files \"index.html, CSS/*.css, Media/*.*, *.png, *.jpg\""
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  },
+  "keywords": [
+    "landing-page",
+    "hvac",
+    "calgary",
+    "responsive"
+  ],
+  "author": "Calgary Home Services",
+  "license": "ISC"
+}
