@@ -243,6 +243,62 @@
             width: 100%;
         }
 
+        /* --- NAVIGATION DROPDOWN STYLING --- */
+        .nav-dropdown-item {
+            position: relative;
+        }
+
+        .nav-submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            padding: 8px 0;
+            list-style: none;
+            min-width: 220px;
+            z-index: 1010;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-submenu li {
+            width: 100%;
+        }
+
+        .nav-submenu a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            text-align: left;
+            border-bottom: none !important;
+        }
+
+        .nav-submenu a::after {
+            display: none !important;
+        }
+
+        .nav-submenu a:hover {
+            background: var(--soft-blue-tint);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown-item:hover .nav-submenu {
+            display: block;
+            animation: fadeInMenu 0.2s ease-out;
+        }
+
+        @keyframes fadeInMenu {
+            from { opacity: 0; transform: translate(-50%, 8px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
         .mobile-nav-toggle {
             display: none;
             background: none;
@@ -1787,6 +1843,33 @@
                 border-bottom: none;
             }
 
+            .nav-submenu {
+                position: static;
+                display: block;
+                box-shadow: none;
+                background: transparent;
+                border: none;
+                padding: 4px 0 4px 15px;
+                min-width: unset;
+                transform: none;
+            }
+
+            .nav-submenu li a {
+                border-bottom: none !important;
+                padding: 6px 0;
+                font-size: 0.85rem;
+                color: var(--text-light);
+            }
+
+            .nav-submenu li a:hover {
+                background: transparent;
+                color: var(--primary-blue);
+            }
+
+            .nav-dropdown-item:hover .nav-submenu {
+                animation: none;
+            }
+
             .nav-btn {
                 text-align: center;
                 margin-top: 8px;
@@ -2011,7 +2094,16 @@
             <nav>
                 <ul>
                     <li><a href="#pricing">Pricing Plans</a></li>
-                    <li><a href="#services">Services Suite</a></li>
+                    <li class="nav-dropdown-item">
+                        <a href="#services">Services Suite <i class="fa-solid fa-chevron-down" style="font-size:0.75rem; margin-left:4px;"></i></a>
+                        <ul class="nav-submenu">
+                            <li><a href="#duct-cleaning">Duct Cleaning</a></li>
+                            <li><a href="#furnace-cleaning">Furnace Cleaning</a></li>
+                            <li><a href="#dryer-cleaning">Dryer Vent Cleaning</a></li>
+                            <li><a href="#wall-insulation">Wall Insulation Services</a></li>
+                            <li><a href="#insulation-removal">Wall Insulation Removal</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#values">Core Values</a></li>
                     <li><a href="#compare">Proof Deck</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -2253,7 +2345,7 @@
         </div>
 
         <!-- SERVICE BLOCK 1 -->
-        <div class="service-showcase-row">
+        <div class="service-showcase-row" id="duct-cleaning">
             <div class="image-frame reveal">
                 <!-- 
                   IMAGE TRADING INSTRUCTIONS:
@@ -2276,7 +2368,7 @@
         </div>
 
         <!-- SERVICE BLOCK 2 (REVERSED ORIENTATION) -->
-        <div class="service-showcase-row reverse">
+        <div class="service-showcase-row reverse" id="furnace-cleaning">
             <div class="image-frame reveal">
                 <img src="furnace_cleaning.png" alt="Furnace Component Cleaning">
                 <div class="img-overlay-tag">Precision Component Maintenance</div>
@@ -2293,7 +2385,7 @@
         </div>
 
         <!-- SERVICE BLOCK 3 -->
-        <div class="service-showcase-row">
+        <div class="service-showcase-row" id="dryer-cleaning">
             <div class="image-frame reveal">
                 <img src="dryer_cleaning.png" alt="Dryer Vent Extraction">
                 <div class="img-overlay-tag">Lint Extraction Equipment</div>
@@ -2310,7 +2402,7 @@
         </div>
 
         <!-- SERVICE BLOCK 4 -->
-        <div class="service-showcase-row" style="align-items: flex-start; display: flex; flex-direction: column; gap: 40px;">
+        <div class="service-showcase-row" id="wall-insulation" style="align-items: flex-start; display: flex; flex-direction: column; gap: 40px;">
             
             <!-- Top Section: Two Columns -->
             <div style="display: grid; grid-template-columns: 4fr 6fr; gap: 50px; width: 100%; align-items: flex-start;" class="insulation-columns-wrapper">
@@ -2523,7 +2615,7 @@
         </div>
 
         <!-- SERVICE BLOCK 5 -->
-        <div class="service-showcase-row" style="align-items: flex-start;">
+        <div class="service-showcase-row" id="insulation-removal" style="align-items: flex-start;">
             
             <!-- Left Column: Image + Intro Text -->
             <div>
@@ -2923,7 +3015,7 @@
                     </div>
                     <div class="contact-card-row">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>canadahomecareservices3@gmail.com</span>
+                        <span><a href="mailto:calgaryhomecareservices@gmail.com" style="color: inherit; text-decoration: none;">calgaryhomecareservices@gmail.com</a></span>
                     </div>
                 </div>
             </div>
